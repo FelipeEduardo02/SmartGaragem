@@ -6,5 +6,15 @@ namespace Crud_1
         {
             InitializeComponent();
         }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_Cancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btn_OK = new System.Windows.Forms.Button();
+            this.btn_Ok = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -53,26 +53,25 @@
             this.textBox1.Size = new System.Drawing.Size(215, 23);
             this.textBox1.TabIndex = 1;
             // 
-            // btn_OK
+            // btn_Ok
             // 
-            this.btn_OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_OK.Location = new System.Drawing.Point(71, 58);
-            this.btn_OK.Name = "btn_OK";
-            this.btn_OK.Size = new System.Drawing.Size(75, 23);
-            this.btn_OK.TabIndex = 2;
-            this.btn_OK.Text = "Ok";
-            this.btn_OK.UseVisualStyleBackColor = true;
+            this.btn_Ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Ok.Location = new System.Drawing.Point(71, 58);
+            this.btn_Ok.Name = "btn_Ok";
+            this.btn_Ok.Size = new System.Drawing.Size(75, 23);
+            this.btn_Ok.TabIndex = 2;
+            this.btn_Ok.Text = "Ok";
+            this.btn_Ok.UseVisualStyleBackColor = true;
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Cancelar.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_Cancelar.Location = new System.Drawing.Point(152, 58);
+            this.btn_Cancelar.Location = new System.Drawing.Point(152, 59);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 3;
             this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click_1);
             // 
             // Form_CadastrarUsuario
             // 
@@ -80,10 +79,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(239, 94);
             this.Controls.Add(this.btn_Cancelar);
-            this.Controls.Add(this.btn_OK);
+            this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "Form_CadastrarUsuario";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Cadastro de usuário";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -94,7 +96,7 @@
 
         private Label label1;
         private TextBox textBox1;
-        private Button btn_OK;
+        private Button btn_Ok;
         private Button btn_Cancelar;
     }
 }
