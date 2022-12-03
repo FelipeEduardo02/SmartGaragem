@@ -2,6 +2,9 @@
 {
     partial class Form_Consulta
     {
+
+        
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,6 +14,7 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        ///
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -29,6 +33,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.btn_novo = new System.Windows.Forms.Button();
             this.BtnMenu_Novo = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip_Veículo = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,7 +41,13 @@
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Apagar = new System.Windows.Forms.Button();
             this.btn_Fechar = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listV_Consulta = new System.Windows.Forms.ListView();
+            this.Column_ID = new System.Windows.Forms.ColumnHeader();
+            this.Column_Marca = new System.Windows.Forms.ColumnHeader();
+            this.Column_Modelo = new System.Windows.Forms.ColumnHeader();
+            this.Column_Placa = new System.Windows.Forms.ColumnHeader();
+            this.Column_Cor = new System.Windows.Forms.ColumnHeader();
+            this.Column_Ano = new System.Windows.Forms.ColumnHeader();
             this.BtnMenu_Novo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,20 +112,61 @@
             this.btn_Fechar.UseVisualStyleBackColor = true;
             this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
             // 
-            // listView1
+            // listV_Consulta
             // 
-            this.listView1.Location = new System.Drawing.Point(12, 12);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(776, 397);
-            this.listView1.TabIndex = 7;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listV_Consulta.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Column_ID,
+            this.Column_Marca,
+            this.Column_Modelo,
+            this.Column_Placa,
+            this.Column_Cor,
+            this.Column_Ano});
+            this.listV_Consulta.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.listV_Consulta.Location = new System.Drawing.Point(12, 12);
+            this.listV_Consulta.Name = "listV_Consulta";
+            this.listV_Consulta.Size = new System.Drawing.Size(776, 397);
+            this.listV_Consulta.TabIndex = 7;
+            this.listV_Consulta.UseCompatibleStateImageBehavior = false;
+            this.listV_Consulta.View = System.Windows.Forms.View.Details;
+            this.listV_Consulta.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // Column_ID
+            // 
+            this.Column_ID.Text = "ID";
+            this.Column_ID.Width = 40;
+            // 
+            // Column_Marca
+            // 
+            this.Column_Marca.Text = "Marca";
+            this.Column_Marca.Width = 100;
+            // 
+            // Column_Modelo
+            // 
+            this.Column_Modelo.Text = "Modelo";
+            this.Column_Modelo.Width = 100;
+            // 
+            // Column_Placa
+            // 
+            this.Column_Placa.Text = "Placa";
+            this.Column_Placa.Width = 80;
+            // 
+            // Column_Cor
+            // 
+            this.Column_Cor.Text = "Cor";
+            this.Column_Cor.Width = 80;
+            // 
+            // Column_Ano
+            // 
+            this.Column_Ano.Text = "Ano";
+            this.Column_Ano.Width = 50;
             // 
             // Form_Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listV_Consulta);
             this.Controls.Add(this.btn_Fechar);
             this.Controls.Add(this.btn_Apagar);
             this.Controls.Add(this.btn_Editar);
@@ -138,6 +190,12 @@
         private Button btn_Editar;
         private Button btn_Apagar;
         private Button btn_Fechar;
-        private ListView listView1;
+        private ListView listV_Consulta;
+        private ColumnHeader Column_ID;
+        private ColumnHeader Column_Marca;
+        private ColumnHeader Column_Modelo;
+        private ColumnHeader Column_Placa;
+        private ColumnHeader Column_Cor;
+        private ColumnHeader Column_Ano;
     }
 }

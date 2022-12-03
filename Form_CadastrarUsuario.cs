@@ -16,5 +16,15 @@ namespace Crud_1
         {
             this.Close();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Ok_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

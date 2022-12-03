@@ -38,10 +38,10 @@
             this.lb_Placa = new System.Windows.Forms.Label();
             this.btn_Ok = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.Placa = new System.Windows.Forms.TextBox();
+            this.txtbox_Placa = new System.Windows.Forms.TextBox();
             this.lb_Ano = new System.Windows.Forms.Label();
             this.lb_Responsavel = new System.Windows.Forms.Label();
-            this.txtbox_Responsável = new System.Windows.Forms.TextBox();
+            this.txtbox_Responsavel = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtbox_Marca
@@ -50,6 +50,7 @@
             this.txtbox_Marca.Name = "txtbox_Marca";
             this.txtbox_Marca.Size = new System.Drawing.Size(87, 23);
             this.txtbox_Marca.TabIndex = 0;
+            this.txtbox_Marca.TextChanged += new System.EventHandler(this.txtbox_Marca_TextChanged);
             // 
             // txtbox_Modelo
             // 
@@ -57,6 +58,7 @@
             this.txtbox_Modelo.Name = "txtbox_Modelo";
             this.txtbox_Modelo.Size = new System.Drawing.Size(87, 23);
             this.txtbox_Modelo.TabIndex = 1;
+            this.txtbox_Modelo.TextChanged += new System.EventHandler(this.txtbox_Modelo_TextChanged);
             // 
             // txtbox_Cor
             // 
@@ -138,12 +140,12 @@
             this.btn_Cancelar.UseVisualStyleBackColor = true;
             this.btn_Cancelar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Placa
+            // txtbox_Placa
             // 
-            this.Placa.Location = new System.Drawing.Point(106, 88);
-            this.Placa.Name = "Placa";
-            this.Placa.Size = new System.Drawing.Size(87, 23);
-            this.Placa.TabIndex = 11;
+            this.txtbox_Placa.Location = new System.Drawing.Point(106, 88);
+            this.txtbox_Placa.Name = "txtbox_Placa";
+            this.txtbox_Placa.Size = new System.Drawing.Size(87, 23);
+            this.txtbox_Placa.TabIndex = 11;
             // 
             // lb_Ano
             // 
@@ -163,12 +165,12 @@
             this.lb_Responsavel.TabIndex = 13;
             this.lb_Responsavel.Text = "Responsável";
             // 
-            // txtbox_Responsável
+            // txtbox_Responsavel
             // 
-            this.txtbox_Responsável.Location = new System.Drawing.Point(199, 32);
-            this.txtbox_Responsável.Name = "txtbox_Responsável";
-            this.txtbox_Responsável.Size = new System.Drawing.Size(87, 23);
-            this.txtbox_Responsável.TabIndex = 14;
+            this.txtbox_Responsavel.Location = new System.Drawing.Point(199, 32);
+            this.txtbox_Responsavel.Name = "txtbox_Responsavel";
+            this.txtbox_Responsavel.Size = new System.Drawing.Size(87, 23);
+            this.txtbox_Responsavel.TabIndex = 14;
             // 
             // Form_CadastrarVeiculo
             // 
@@ -177,10 +179,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(298, 166);
-            this.Controls.Add(this.txtbox_Responsável);
+            this.Controls.Add(this.txtbox_Responsavel);
             this.Controls.Add(this.lb_Responsavel);
             this.Controls.Add(this.lb_Ano);
-            this.Controls.Add(this.Placa);
+            this.Controls.Add(this.txtbox_Placa);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.lb_Placa);
@@ -197,6 +199,7 @@
             this.Name = "Form_CadastrarVeiculo";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastrar veículo";
             this.Load += new System.EventHandler(this.Form_CadastrarVeiculo_Load);
             this.ResumeLayout(false);
@@ -216,9 +219,9 @@
         private Label lb_Placa;
         private Button btn_Ok;
         private Button btn_Cancelar;
-        private TextBox Placa;
+        private TextBox txtbox_Placa;
         private Label lb_Ano;
         private Label lb_Responsavel;
-        private TextBox txtbox_Responsável;
+        private TextBox txtbox_Responsavel;
     }
 }

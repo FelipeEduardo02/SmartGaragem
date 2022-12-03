@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Crud_1
 {
     public partial class Form_Consulta : Form
     {
+        MySqlConnection Conexao;
         public Form_Consulta()
         {
             InitializeComponent();
@@ -29,18 +31,23 @@ namespace Crud_1
         private void toolStrip_Veículo_Click(object sender, EventArgs e)
         {
             Form_CadastrarVeiculo obj_cadastrarVeiculo = new Form_CadastrarVeiculo();
-            obj_cadastrarVeiculo.Show();
+            obj_cadastrarVeiculo.ShowDialog();
         }
 
         private void toolStrip_Usuario_Click(object sender, EventArgs e)
         {
             Form_CadastrarUsuario obj_cadastrarUsuario = new Form_CadastrarUsuario();
-            obj_cadastrarUsuario.Show();
+            obj_cadastrarUsuario.ShowDialog();
         }
 
         private void btn_Fechar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
