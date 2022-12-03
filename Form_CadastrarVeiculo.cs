@@ -50,7 +50,6 @@ namespace Crud_1
             finally
             {
                 Conexao.Close();
-
             }
         }
 

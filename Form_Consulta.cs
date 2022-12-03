@@ -13,7 +13,9 @@ namespace Crud_1
 {
     public partial class Form_Consulta : Form
     {
-        MySqlConnection Conexao;
+        private MySqlConnection Conexao;
+        //Endereço da conexão
+        private string data_source = "datasource=localhost;username=root;password=;database=db_garagem";
         public Form_Consulta()
         {
             InitializeComponent();
@@ -47,6 +49,39 @@ namespace Crud_1
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btn_Pesquisar_Click(object sender, EventArgs e)
+        {
+            //Conexão do C# com o banco de dados
+            Conexao = new MySqlConnection(data_source);
+
+            //Variável para comandos SQL
+            string keyword = "'%" + txtbox_Pesquisar.Text + "%'";
+            string sql = "select * from tb_usuario WHERE nome LIKE "+keyword;
+
+            Conexao.Open();
+            MySqlCommand comando = new MySqlCommand(sql, Conexao);
+            MySqlDataReader reader = comando.ExecuteReader();
+            list_Consulta.Items.Clear();
+
+            while(reader.Read())
+            {
+                string[] linha= 
+                {
+                    reader.GetString(0),
+                    reader.GetString(1),
+                    reader.GetString(2),
+                    reader.GetString(3),
+                    reader.GetString(4),
+                    reader.GetString(5),
+                };
+                var linha_listview = new ListViewItem(linha);
+                list_Consulta.Items.Add(linha_listview);
+            }
+
+            
 
         }
     }

@@ -41,13 +41,15 @@
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Apagar = new System.Windows.Forms.Button();
             this.btn_Fechar = new System.Windows.Forms.Button();
-            this.listV_Consulta = new System.Windows.Forms.ListView();
+            this.list_Consulta = new System.Windows.Forms.ListView();
             this.Column_ID = new System.Windows.Forms.ColumnHeader();
             this.Column_Marca = new System.Windows.Forms.ColumnHeader();
             this.Column_Modelo = new System.Windows.Forms.ColumnHeader();
             this.Column_Placa = new System.Windows.Forms.ColumnHeader();
             this.Column_Cor = new System.Windows.Forms.ColumnHeader();
             this.Column_Ano = new System.Windows.Forms.ColumnHeader();
+            this.btn_Pesquisar = new System.Windows.Forms.Button();
+            this.txtbox_Pesquisar = new System.Windows.Forms.TextBox();
             this.BtnMenu_Novo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,24 +114,27 @@
             this.btn_Fechar.UseVisualStyleBackColor = true;
             this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
             // 
-            // listV_Consulta
+            // list_Consulta
             // 
-            this.listV_Consulta.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.list_Consulta.AllowColumnReorder = true;
+            this.list_Consulta.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Column_ID,
             this.Column_Marca,
             this.Column_Modelo,
             this.Column_Placa,
             this.Column_Cor,
             this.Column_Ano});
-            this.listV_Consulta.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.list_Consulta.GridLines = true;
+            this.list_Consulta.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listV_Consulta.Location = new System.Drawing.Point(12, 12);
-            this.listV_Consulta.Name = "listV_Consulta";
-            this.listV_Consulta.Size = new System.Drawing.Size(776, 397);
-            this.listV_Consulta.TabIndex = 7;
-            this.listV_Consulta.UseCompatibleStateImageBehavior = false;
-            this.listV_Consulta.View = System.Windows.Forms.View.Details;
-            this.listV_Consulta.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.list_Consulta.LabelEdit = true;
+            this.list_Consulta.Location = new System.Drawing.Point(12, 41);
+            this.list_Consulta.Name = "list_Consulta";
+            this.list_Consulta.Size = new System.Drawing.Size(776, 368);
+            this.list_Consulta.TabIndex = 7;
+            this.list_Consulta.UseCompatibleStateImageBehavior = false;
+            this.list_Consulta.View = System.Windows.Forms.View.Details;
+            this.list_Consulta.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Column_ID
             // 
@@ -161,12 +166,35 @@
             this.Column_Ano.Text = "Ano";
             this.Column_Ano.Width = 50;
             // 
+            // btn_Pesquisar
+            // 
+            this.btn_Pesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Pesquisar.Location = new System.Drawing.Point(312, 11);
+            this.btn_Pesquisar.Name = "btn_Pesquisar";
+            this.btn_Pesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Pesquisar.TabIndex = 8;
+            this.btn_Pesquisar.Text = "Pesquisar";
+            this.btn_Pesquisar.UseVisualStyleBackColor = true;
+            this.btn_Pesquisar.Click += new System.EventHandler(this.btn_Pesquisar_Click);
+            // 
+            // txtbox_Pesquisar
+            // 
+            this.txtbox_Pesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtbox_Pesquisar.Location = new System.Drawing.Point(12, 12);
+            this.txtbox_Pesquisar.Name = "txtbox_Pesquisar";
+            this.txtbox_Pesquisar.PlaceholderText = "Pesquisar";
+            this.txtbox_Pesquisar.Size = new System.Drawing.Size(294, 23);
+            this.txtbox_Pesquisar.TabIndex = 9;
+            // 
             // Form_Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btn_Fechar;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listV_Consulta);
+            this.Controls.Add(this.txtbox_Pesquisar);
+            this.Controls.Add(this.btn_Pesquisar);
+            this.Controls.Add(this.list_Consulta);
             this.Controls.Add(this.btn_Fechar);
             this.Controls.Add(this.btn_Apagar);
             this.Controls.Add(this.btn_Editar);
@@ -179,6 +207,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.BtnMenu_Novo.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -190,12 +219,14 @@
         private Button btn_Editar;
         private Button btn_Apagar;
         private Button btn_Fechar;
-        private ListView listV_Consulta;
+        private ListView list_Consulta;
         private ColumnHeader Column_ID;
         private ColumnHeader Column_Marca;
         private ColumnHeader Column_Modelo;
         private ColumnHeader Column_Placa;
         private ColumnHeader Column_Cor;
         private ColumnHeader Column_Ano;
+        private Button btn_Pesquisar;
+        private TextBox txtbox_Pesquisar;
     }
 }

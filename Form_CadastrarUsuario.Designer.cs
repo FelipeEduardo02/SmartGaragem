@@ -32,7 +32,7 @@
             this.txtb_Nome = new System.Windows.Forms.TextBox();
             this.btn_Ok = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtb_Senha = new System.Windows.Forms.TextBox();
             this.lb_Senha = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -55,6 +55,7 @@
             this.txtb_Nome.Name = "txtb_Nome";
             this.txtb_Nome.Size = new System.Drawing.Size(215, 23);
             this.txtb_Nome.TabIndex = 1;
+            this.txtb_Nome.TextChanged += new System.EventHandler(this.txtb_Nome_TextChanged);
             // 
             // btn_Ok
             // 
@@ -79,12 +80,13 @@
             this.btn_Cancelar.UseVisualStyleBackColor = true;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click_1);
             // 
-            // textBox2
+            // txtb_Senha
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(215, 23);
-            this.textBox2.TabIndex = 4;
+            this.txtb_Senha.Location = new System.Drawing.Point(12, 84);
+            this.txtb_Senha.Name = "txtb_Senha";
+            this.txtb_Senha.PasswordChar = '*';
+            this.txtb_Senha.Size = new System.Drawing.Size(215, 23);
+            this.txtb_Senha.TabIndex = 4;
             // 
             // lb_Senha
             // 
@@ -102,7 +104,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(239, 157);
             this.Controls.Add(this.lb_Senha);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtb_Senha);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.txtb_Nome);
@@ -123,7 +125,7 @@
         private TextBox txtb_Nome;
         private Button btn_Ok;
         private Button btn_Cancelar;
-        private TextBox textBox2;
+        private TextBox txtb_Senha;
         private Label lb_Senha;
     }
 }
