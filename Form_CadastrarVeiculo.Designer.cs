@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtbox_Marca = new System.Windows.Forms.TextBox();
             this.txtbox_Modelo = new System.Windows.Forms.TextBox();
             this.txtbox_Cor = new System.Windows.Forms.TextBox();
@@ -41,7 +42,9 @@
             this.txtbox_Placa = new System.Windows.Forms.TextBox();
             this.lb_Ano = new System.Windows.Forms.Label();
             this.lb_Responsavel = new System.Windows.Forms.Label();
-            this.txtbox_Responsavel = new System.Windows.Forms.TextBox();
+            this.box_Responsavel = new System.Windows.Forms.ComboBox();
+            this.formConsultaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.formConsultaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtbox_Marca
@@ -165,12 +168,18 @@
             this.lb_Responsavel.TabIndex = 13;
             this.lb_Responsavel.Text = "Responsável";
             // 
-            // txtbox_Responsavel
+            // box_Responsavel
             // 
-            this.txtbox_Responsavel.Location = new System.Drawing.Point(199, 32);
-            this.txtbox_Responsavel.Name = "txtbox_Responsavel";
-            this.txtbox_Responsavel.Size = new System.Drawing.Size(87, 23);
-            this.txtbox_Responsavel.TabIndex = 14;
+            this.box_Responsavel.DataSource = this.formConsultaBindingSource;
+            this.box_Responsavel.FormattingEnabled = true;
+            this.box_Responsavel.Location = new System.Drawing.Point(199, 32);
+            this.box_Responsavel.Name = "box_Responsavel";
+            this.box_Responsavel.Size = new System.Drawing.Size(87, 23);
+            this.box_Responsavel.TabIndex = 14;
+            // 
+            // formConsultaBindingSource
+            // 
+            this.formConsultaBindingSource.DataSource = typeof(Crud_1.Form_Consulta);
             // 
             // Form_CadastrarVeiculo
             // 
@@ -179,7 +188,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(298, 166);
-            this.Controls.Add(this.txtbox_Responsavel);
+            this.Controls.Add(this.box_Responsavel);
             this.Controls.Add(this.lb_Responsavel);
             this.Controls.Add(this.lb_Ano);
             this.Controls.Add(this.txtbox_Placa);
@@ -202,6 +211,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastrar veículo";
             this.Load += new System.EventHandler(this.Form_CadastrarVeiculo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.formConsultaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +232,7 @@
         private TextBox txtbox_Placa;
         private Label lb_Ano;
         private Label lb_Responsavel;
-        private TextBox txtbox_Responsavel;
+        private ComboBox box_Responsavel;
+        private BindingSource formConsultaBindingSource;
     }
 }

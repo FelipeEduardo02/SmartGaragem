@@ -43,8 +43,7 @@ namespace Crud_1
                 comando.ExecuteReader();
                 MessageBox.Show("Usuário cadastrado!");
                 this.Close();
-            }
-            catch (Exception ex)
+            }catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

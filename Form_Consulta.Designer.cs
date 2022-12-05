@@ -33,23 +33,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.btn_novo = new System.Windows.Forms.Button();
             this.BtnMenu_Novo = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip_Veículo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_Usuario = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Editar = new System.Windows.Forms.Button();
             this.btn_Apagar = new System.Windows.Forms.Button();
-            this.btn_Fechar = new System.Windows.Forms.Button();
-            this.list_Consulta = new System.Windows.Forms.ListView();
-            this.Column_ID = new System.Windows.Forms.ColumnHeader();
-            this.Column_Marca = new System.Windows.Forms.ColumnHeader();
-            this.Column_Modelo = new System.Windows.Forms.ColumnHeader();
-            this.Column_Placa = new System.Windows.Forms.ColumnHeader();
-            this.Column_Cor = new System.Windows.Forms.ColumnHeader();
-            this.Column_Ano = new System.Windows.Forms.ColumnHeader();
             this.btn_Pesquisar = new System.Windows.Forms.Button();
             this.txtbox_Pesquisar = new System.Windows.Forms.TextBox();
+            this.list_Consulta = new System.Windows.Forms.ListView();
+            this.list_Usuarios = new System.Windows.Forms.ListView();
+            this.lb_Veiculos = new System.Windows.Forms.Label();
+            this.lb_Usuarios = new System.Windows.Forms.Label();
+            this.btn_sair = new System.Windows.Forms.Button();
+            this.lb_UsuarioLogado = new System.Windows.Forms.Label();
             this.BtnMenu_Novo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +91,7 @@
             this.btn_Editar.TabIndex = 4;
             this.btn_Editar.Text = "Editar";
             this.btn_Editar.UseVisualStyleBackColor = true;
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
             // 
             // btn_Apagar
             // 
@@ -103,68 +101,6 @@
             this.btn_Apagar.TabIndex = 5;
             this.btn_Apagar.Text = "Apagar";
             this.btn_Apagar.UseVisualStyleBackColor = true;
-            // 
-            // btn_Fechar
-            // 
-            this.btn_Fechar.Location = new System.Drawing.Point(713, 415);
-            this.btn_Fechar.Name = "btn_Fechar";
-            this.btn_Fechar.Size = new System.Drawing.Size(75, 23);
-            this.btn_Fechar.TabIndex = 6;
-            this.btn_Fechar.Text = "Fechar";
-            this.btn_Fechar.UseVisualStyleBackColor = true;
-            this.btn_Fechar.Click += new System.EventHandler(this.btn_Fechar_Click);
-            // 
-            // list_Consulta
-            // 
-            this.list_Consulta.AllowColumnReorder = true;
-            this.list_Consulta.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Column_ID,
-            this.Column_Marca,
-            this.Column_Modelo,
-            this.Column_Placa,
-            this.Column_Cor,
-            this.Column_Ano});
-            this.list_Consulta.GridLines = true;
-            this.list_Consulta.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.list_Consulta.LabelEdit = true;
-            this.list_Consulta.Location = new System.Drawing.Point(12, 41);
-            this.list_Consulta.Name = "list_Consulta";
-            this.list_Consulta.Size = new System.Drawing.Size(776, 368);
-            this.list_Consulta.TabIndex = 7;
-            this.list_Consulta.UseCompatibleStateImageBehavior = false;
-            this.list_Consulta.View = System.Windows.Forms.View.Details;
-            this.list_Consulta.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // Column_ID
-            // 
-            this.Column_ID.Text = "ID";
-            this.Column_ID.Width = 40;
-            // 
-            // Column_Marca
-            // 
-            this.Column_Marca.Text = "Marca";
-            this.Column_Marca.Width = 100;
-            // 
-            // Column_Modelo
-            // 
-            this.Column_Modelo.Text = "Modelo";
-            this.Column_Modelo.Width = 100;
-            // 
-            // Column_Placa
-            // 
-            this.Column_Placa.Text = "Placa";
-            this.Column_Placa.Width = 80;
-            // 
-            // Column_Cor
-            // 
-            this.Column_Cor.Text = "Cor";
-            this.Column_Cor.Width = 80;
-            // 
-            // Column_Ano
-            // 
-            this.Column_Ano.Text = "Ano";
-            this.Column_Ano.Width = 50;
             // 
             // btn_Pesquisar
             // 
@@ -182,20 +118,80 @@
             this.txtbox_Pesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtbox_Pesquisar.Location = new System.Drawing.Point(12, 12);
             this.txtbox_Pesquisar.Name = "txtbox_Pesquisar";
-            this.txtbox_Pesquisar.PlaceholderText = "Pesquisar";
+            this.txtbox_Pesquisar.PlaceholderText = "Procure por marca, modelo ou placa";
             this.txtbox_Pesquisar.Size = new System.Drawing.Size(294, 23);
             this.txtbox_Pesquisar.TabIndex = 9;
+            // 
+            // list_Consulta
+            // 
+            this.list_Consulta.Location = new System.Drawing.Point(12, 41);
+            this.list_Consulta.Name = "list_Consulta";
+            this.list_Consulta.Size = new System.Drawing.Size(480, 368);
+            this.list_Consulta.TabIndex = 10;
+            this.list_Consulta.UseCompatibleStateImageBehavior = false;
+            // 
+            // list_Usuarios
+            // 
+            this.list_Usuarios.Location = new System.Drawing.Point(498, 41);
+            this.list_Usuarios.Name = "list_Usuarios";
+            this.list_Usuarios.Size = new System.Drawing.Size(290, 368);
+            this.list_Usuarios.TabIndex = 11;
+            this.list_Usuarios.UseCompatibleStateImageBehavior = false;
+            // 
+            // lb_Veiculos
+            // 
+            this.lb_Veiculos.AutoSize = true;
+            this.lb_Veiculos.BackColor = System.Drawing.Color.White;
+            this.lb_Veiculos.ForeColor = System.Drawing.Color.DimGray;
+            this.lb_Veiculos.Location = new System.Drawing.Point(24, 384);
+            this.lb_Veiculos.Name = "lb_Veiculos";
+            this.lb_Veiculos.Size = new System.Drawing.Size(50, 15);
+            this.lb_Veiculos.TabIndex = 12;
+            this.lb_Veiculos.Text = "Veículos";
+            // 
+            // lb_Usuarios
+            // 
+            this.lb_Usuarios.AutoSize = true;
+            this.lb_Usuarios.BackColor = System.Drawing.Color.White;
+            this.lb_Usuarios.ForeColor = System.Drawing.Color.DimGray;
+            this.lb_Usuarios.Location = new System.Drawing.Point(512, 384);
+            this.lb_Usuarios.Name = "lb_Usuarios";
+            this.lb_Usuarios.Size = new System.Drawing.Size(52, 15);
+            this.lb_Usuarios.TabIndex = 13;
+            this.lb_Usuarios.Text = "Usuários";
+            // 
+            // btn_sair
+            // 
+            this.btn_sair.Location = new System.Drawing.Point(713, 415);
+            this.btn_sair.Name = "btn_sair";
+            this.btn_sair.Size = new System.Drawing.Size(75, 23);
+            this.btn_sair.TabIndex = 14;
+            this.btn_sair.Text = "Sair";
+            this.btn_sair.UseVisualStyleBackColor = true;
+            this.btn_sair.Click += new System.EventHandler(this.btn_sair_Click);
+            // 
+            // lb_UsuarioLogado
+            // 
+            this.lb_UsuarioLogado.AutoSize = true;
+            this.lb_UsuarioLogado.Location = new System.Drawing.Point(498, 419);
+            this.lb_UsuarioLogado.Name = "lb_UsuarioLogado";
+            this.lb_UsuarioLogado.Size = new System.Drawing.Size(69, 15);
+            this.lb_UsuarioLogado.TabIndex = 15;
+            this.lb_UsuarioLogado.Text = "Não logado";
             // 
             // Form_Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btn_Fechar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lb_UsuarioLogado);
+            this.Controls.Add(this.btn_sair);
+            this.Controls.Add(this.lb_Usuarios);
+            this.Controls.Add(this.lb_Veiculos);
+            this.Controls.Add(this.list_Usuarios);
+            this.Controls.Add(this.list_Consulta);
             this.Controls.Add(this.txtbox_Pesquisar);
             this.Controls.Add(this.btn_Pesquisar);
-            this.Controls.Add(this.list_Consulta);
-            this.Controls.Add(this.btn_Fechar);
             this.Controls.Add(this.btn_Apagar);
             this.Controls.Add(this.btn_Editar);
             this.Controls.Add(this.btn_novo);
@@ -204,6 +200,7 @@
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Form_Consulta";
             this.Text = "Smart Garagem";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Consulta_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.BtnMenu_Novo.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -218,15 +215,13 @@
         private ToolStripMenuItem toolStrip_Usuario;
         private Button btn_Editar;
         private Button btn_Apagar;
-        private Button btn_Fechar;
-        private ListView list_Consulta;
-        private ColumnHeader Column_ID;
-        private ColumnHeader Column_Marca;
-        private ColumnHeader Column_Modelo;
-        private ColumnHeader Column_Placa;
-        private ColumnHeader Column_Cor;
-        private ColumnHeader Column_Ano;
         private Button btn_Pesquisar;
         private TextBox txtbox_Pesquisar;
+        private ListView list_Consulta;
+        private ListView list_Usuarios;
+        private Label lb_Veiculos;
+        private Label lb_Usuarios;
+        private Button btn_sair;
+        public Label lb_UsuarioLogado;
     }
 }
