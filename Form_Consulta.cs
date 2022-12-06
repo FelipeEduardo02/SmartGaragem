@@ -36,6 +36,8 @@ namespace Crud_1
             list_Consulta.Columns.Add("Placa", 65, HorizontalAlignment.Center);
             list_Consulta.Columns.Add("Cor", 70, HorizontalAlignment.Center);
             list_Consulta.Columns.Add("Ano", 50, HorizontalAlignment.Center);
+            list_Consulta.Columns.Add("Responsável", 80, HorizontalAlignment.Center);
+            list_Consulta.Columns.Add("Convidado", 80, HorizontalAlignment.Center);
 
             list_Usuarios.View = View.Details;
             list_Usuarios.LabelEdit = true;
@@ -62,7 +64,16 @@ namespace Crud_1
                 Conexao = new MySqlConnection(data_source);
 
                 //Inserindo dados na tabela do banco
-                string sql = "SELECT * FROM tb_veiculo"+_in; //String contendo um comando SQL para buscar por modelo
+                string sql = "SELECT tb_veiculo.id_veiculo, " +
+                                    "tb_veiculo.marca, " +
+                                    "tb_veiculo.modelo, " +
+                                    "tb_veiculo.placa, " +
+                                    "tb_veiculo.cor, " +
+                                    "tb_veiculo.ano, " +
+                                    "tb_usuario.nome" +
+                                    /*"tb_usuario.nome" +*/
+                             " FROM tb_veiculo JOIN tb_usuario" +
+                             " ON tb_usuario.id_usuario = tb_veiculo.responsavel" + _in; //String contendo um comando SQL para buscar por modelo
 
                 Conexao.Open(); //Abre a conexão
 
@@ -81,6 +92,8 @@ namespace Crud_1
                         reader.GetString(3),
                         reader.GetString(4),
                         reader.GetString(5),
+                        reader.GetString(6),
+                        //reader.GetString(7),
                      };
                     var linha_listview = new ListViewItem(linha);
                     list_Consulta.Items.Add(linha_listview);
@@ -151,7 +164,10 @@ namespace Crud_1
             {
                 Form_CadastrarVeiculo obj_cadastrarVeiculo = new Form_CadastrarVeiculo();
                 obj_cadastrarVeiculo.ShowDialog();
-            } finally
+            }/*catch
+            {
+
+            }*/finally
             {
                 Consultar_Veiculo("");
             }
@@ -183,7 +199,18 @@ namespace Crud_1
 
         private void btn_Editar_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                //Form_UpdateVeiculo obj_UpdateVeiculo = new Form_UpdateVeiculo(list_Consulta.SelectedItems.);
+                //obj_UpdateVeiculo.ShowDialog();
+            }/*catch
+            {
+                           
+            }*/
+            finally
+            {
+                Consultar_Veiculo("");
+            }
         }
 
         private void Form_Consulta_FormClosing(object sender, FormClosingEventArgs e)
@@ -194,6 +221,11 @@ namespace Crud_1
         private void btn_sair_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void list_Consulta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

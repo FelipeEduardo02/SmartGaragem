@@ -49,6 +49,7 @@
             // 
             // txtbox_Marca
             // 
+            this.txtbox_Marca.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.txtbox_Marca.Location = new System.Drawing.Point(12, 32);
             this.txtbox_Marca.Name = "txtbox_Marca";
             this.txtbox_Marca.Size = new System.Drawing.Size(87, 23);
@@ -122,12 +123,16 @@
             // btn_Ok
             // 
             this.btn_Ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Ok.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_Ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Ok.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Ok.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_Ok.Location = new System.Drawing.Point(130, 128);
             this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(75, 23);
             this.btn_Ok.TabIndex = 9;
             this.btn_Ok.Text = "Ok";
-            this.btn_Ok.UseVisualStyleBackColor = true;
+            this.btn_Ok.UseVisualStyleBackColor = false;
             this.btn_Ok.Click += new System.EventHandler(this.btn_Ok_Click);
             // 
             // btn_Cancelar
@@ -135,12 +140,18 @@
             this.btn_Cancelar.AccessibleDescription = "Fecha esta janela sem salvar as alterações";
             this.btn_Cancelar.AccessibleName = "Cancelar";
             this.btn_Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Cancelar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_Cancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Cancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Cancelar.Location = new System.Drawing.Point(211, 128);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 10;
             this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.UseVisualStyleBackColor = false;
             this.btn_Cancelar.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtbox_Placa
@@ -170,8 +181,10 @@
             // 
             // box_Responsavel
             // 
-            this.box_Responsavel.DataSource = this.formConsultaBindingSource;
             this.box_Responsavel.FormattingEnabled = true;
+            this.box_Responsavel.Items.AddRange(new object[] {
+            "h",
+            "i"});
             this.box_Responsavel.Location = new System.Drawing.Point(199, 32);
             this.box_Responsavel.Name = "box_Responsavel";
             this.box_Responsavel.Size = new System.Drawing.Size(87, 23);
@@ -186,6 +199,7 @@
             this.AcceptButton = this.btn_Ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(298, 166);
             this.Controls.Add(this.box_Responsavel);
@@ -208,7 +222,7 @@
             this.Name = "Form_CadastrarVeiculo";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar veículo";
             this.Load += new System.EventHandler(this.Form_CadastrarVeiculo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.formConsultaBindingSource)).EndInit();

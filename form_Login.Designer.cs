@@ -58,9 +58,12 @@
             // 
             // btn_login
             // 
+            this.btn_login.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_login.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.btn_login, "btn_login");
+            this.btn_login.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_login.Name = "btn_login";
-            this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // form_Login
@@ -68,6 +71,7 @@
             this.AcceptButton = this.btn_login;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.lb_Id);
             this.Controls.Add(this.lb_Senha);

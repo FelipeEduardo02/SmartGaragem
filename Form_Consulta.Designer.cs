@@ -105,12 +105,17 @@
             // btn_Pesquisar
             // 
             this.btn_Pesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Pesquisar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_Pesquisar.FlatAppearance.BorderSize = 0;
+            this.btn_Pesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Pesquisar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Pesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_Pesquisar.Location = new System.Drawing.Point(312, 11);
             this.btn_Pesquisar.Name = "btn_Pesquisar";
             this.btn_Pesquisar.Size = new System.Drawing.Size(75, 23);
             this.btn_Pesquisar.TabIndex = 8;
             this.btn_Pesquisar.Text = "Pesquisar";
-            this.btn_Pesquisar.UseVisualStyleBackColor = true;
+            this.btn_Pesquisar.UseVisualStyleBackColor = false;
             this.btn_Pesquisar.Click += new System.EventHandler(this.btn_Pesquisar_Click);
             // 
             // txtbox_Pesquisar
@@ -124,11 +129,13 @@
             // 
             // list_Consulta
             // 
+            this.list_Consulta.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.list_Consulta.Location = new System.Drawing.Point(12, 41);
             this.list_Consulta.Name = "list_Consulta";
             this.list_Consulta.Size = new System.Drawing.Size(480, 368);
             this.list_Consulta.TabIndex = 10;
             this.list_Consulta.UseCompatibleStateImageBehavior = false;
+            this.list_Consulta.SelectedIndexChanged += new System.EventHandler(this.list_Consulta_SelectedIndexChanged);
             // 
             // list_Usuarios
             // 
@@ -183,6 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lb_UsuarioLogado);
             this.Controls.Add(this.btn_sair);
@@ -199,6 +207,7 @@
             this.MaximumSize = new System.Drawing.Size(816, 489);
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Form_Consulta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Smart Garagem";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Consulta_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);

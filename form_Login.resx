@@ -158,6 +158,13 @@
   <data name="&gt;&gt;lb_Id.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_login.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_login.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
   <data name="btn_login.Location" type="System.Drawing.Point, System.Drawing">
     <value>152, 122</value>
   </data>
@@ -190,6 +197,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>239, 157</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Login</value>
