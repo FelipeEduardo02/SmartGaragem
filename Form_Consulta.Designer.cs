@@ -47,17 +47,26 @@
             this.lb_Usuarios = new System.Windows.Forms.Label();
             this.btn_sair = new System.Windows.Forms.Button();
             this.lb_UsuarioLogado = new System.Windows.Forms.Label();
+            this.btnMenu_Apagar = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem_Veiculo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Usuario = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnMenu_Novo.SuspendLayout();
+            this.btnMenu_Apagar.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_novo
             // 
+            this.btn_novo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_novo.FlatAppearance.BorderSize = 0;
+            this.btn_novo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_novo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_novo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_novo.Location = new System.Drawing.Point(12, 415);
             this.btn_novo.Name = "btn_novo";
             this.btn_novo.Size = new System.Drawing.Size(75, 23);
             this.btn_novo.TabIndex = 3;
             this.btn_novo.Text = "Novo";
-            this.btn_novo.UseVisualStyleBackColor = true;
+            this.btn_novo.UseVisualStyleBackColor = false;
             this.btn_novo.Click += new System.EventHandler(this.btn_novo_Click);
             // 
             // BtnMenu_Novo
@@ -85,22 +94,33 @@
             // 
             // btn_Editar
             // 
+            this.btn_Editar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_Editar.FlatAppearance.BorderSize = 0;
+            this.btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Editar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Editar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_Editar.Location = new System.Drawing.Point(93, 415);
             this.btn_Editar.Name = "btn_Editar";
             this.btn_Editar.Size = new System.Drawing.Size(75, 23);
             this.btn_Editar.TabIndex = 4;
             this.btn_Editar.Text = "Editar";
-            this.btn_Editar.UseVisualStyleBackColor = true;
+            this.btn_Editar.UseVisualStyleBackColor = false;
             this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
             // 
             // btn_Apagar
             // 
+            this.btn_Apagar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_Apagar.FlatAppearance.BorderSize = 0;
+            this.btn_Apagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Apagar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Apagar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_Apagar.Location = new System.Drawing.Point(174, 415);
             this.btn_Apagar.Name = "btn_Apagar";
             this.btn_Apagar.Size = new System.Drawing.Size(75, 23);
             this.btn_Apagar.TabIndex = 5;
             this.btn_Apagar.Text = "Apagar";
-            this.btn_Apagar.UseVisualStyleBackColor = true;
+            this.btn_Apagar.UseVisualStyleBackColor = false;
+            this.btn_Apagar.Click += new System.EventHandler(this.btn_Apagar_Click);
             // 
             // btn_Pesquisar
             // 
@@ -132,16 +152,15 @@
             this.list_Consulta.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.list_Consulta.Location = new System.Drawing.Point(12, 41);
             this.list_Consulta.Name = "list_Consulta";
-            this.list_Consulta.Size = new System.Drawing.Size(480, 368);
+            this.list_Consulta.Size = new System.Drawing.Size(449, 368);
             this.list_Consulta.TabIndex = 10;
             this.list_Consulta.UseCompatibleStateImageBehavior = false;
-            this.list_Consulta.SelectedIndexChanged += new System.EventHandler(this.list_Consulta_SelectedIndexChanged);
             // 
             // list_Usuarios
             // 
-            this.list_Usuarios.Location = new System.Drawing.Point(498, 41);
+            this.list_Usuarios.Location = new System.Drawing.Point(467, 41);
             this.list_Usuarios.Name = "list_Usuarios";
-            this.list_Usuarios.Size = new System.Drawing.Size(290, 368);
+            this.list_Usuarios.Size = new System.Drawing.Size(321, 368);
             this.list_Usuarios.TabIndex = 11;
             this.list_Usuarios.UseCompatibleStateImageBehavior = false;
             // 
@@ -161,7 +180,7 @@
             this.lb_Usuarios.AutoSize = true;
             this.lb_Usuarios.BackColor = System.Drawing.Color.White;
             this.lb_Usuarios.ForeColor = System.Drawing.Color.DimGray;
-            this.lb_Usuarios.Location = new System.Drawing.Point(512, 384);
+            this.lb_Usuarios.Location = new System.Drawing.Point(480, 384);
             this.lb_Usuarios.Name = "lb_Usuarios";
             this.lb_Usuarios.Size = new System.Drawing.Size(52, 15);
             this.lb_Usuarios.TabIndex = 13;
@@ -169,12 +188,17 @@
             // 
             // btn_sair
             // 
+            this.btn_sair.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_sair.FlatAppearance.BorderSize = 0;
+            this.btn_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sair.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_sair.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_sair.Location = new System.Drawing.Point(713, 415);
             this.btn_sair.Name = "btn_sair";
             this.btn_sair.Size = new System.Drawing.Size(75, 23);
             this.btn_sair.TabIndex = 14;
             this.btn_sair.Text = "Sair";
-            this.btn_sair.UseVisualStyleBackColor = true;
+            this.btn_sair.UseVisualStyleBackColor = false;
             this.btn_sair.Click += new System.EventHandler(this.btn_sair_Click);
             // 
             // lb_UsuarioLogado
@@ -185,6 +209,28 @@
             this.lb_UsuarioLogado.Size = new System.Drawing.Size(69, 15);
             this.lb_UsuarioLogado.TabIndex = 15;
             this.lb_UsuarioLogado.Text = "Não logado";
+            // 
+            // btnMenu_Apagar
+            // 
+            this.btnMenu_Apagar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_Veiculo,
+            this.toolStripMenuItem_Usuario});
+            this.btnMenu_Apagar.Name = "btnMenu_Apagar";
+            this.btnMenu_Apagar.Size = new System.Drawing.Size(115, 48);
+            // 
+            // toolStripMenuItem_Veiculo
+            // 
+            this.toolStripMenuItem_Veiculo.Name = "toolStripMenuItem_Veiculo";
+            this.toolStripMenuItem_Veiculo.Size = new System.Drawing.Size(114, 22);
+            this.toolStripMenuItem_Veiculo.Text = "Veículo";
+            this.toolStripMenuItem_Veiculo.Click += new System.EventHandler(this.toolStripMenuItem_Veiculo_Click);
+            // 
+            // toolStripMenuItem_Usuario
+            // 
+            this.toolStripMenuItem_Usuario.Name = "toolStripMenuItem_Usuario";
+            this.toolStripMenuItem_Usuario.Size = new System.Drawing.Size(114, 22);
+            this.toolStripMenuItem_Usuario.Text = "Usuário";
+            this.toolStripMenuItem_Usuario.Click += new System.EventHandler(this.toolStripMenuItem_Usuario_Click);
             // 
             // Form_Consulta
             // 
@@ -210,8 +256,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Smart Garagem";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Consulta_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.BtnMenu_Novo.ResumeLayout(false);
+            this.btnMenu_Apagar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,11 +272,14 @@
         private Button btn_Apagar;
         private Button btn_Pesquisar;
         private TextBox txtbox_Pesquisar;
-        private ListView list_Consulta;
         private ListView list_Usuarios;
         private Label lb_Veiculos;
         private Label lb_Usuarios;
         private Button btn_sair;
         public Label lb_UsuarioLogado;
+        public ListView list_Consulta;
+        private ContextMenuStrip btnMenu_Apagar;
+        private ToolStripMenuItem toolStripMenuItem_Veiculo;
+        private ToolStripMenuItem toolStripMenuItem_Usuario;
     }
 }

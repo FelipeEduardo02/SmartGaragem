@@ -78,6 +78,7 @@
             this.Controls.Add(this.txtb_Senha);
             this.Controls.Add(this.txtb_Id);
             this.Name = "form_Login";
+            this.Shown += new System.EventHandler(this.checkUsers);
             this.ResumeLayout(false);
             this.PerformLayout();
 

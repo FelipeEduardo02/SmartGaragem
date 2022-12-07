@@ -32,7 +32,7 @@
             this.txtbox_Modelo = new System.Windows.Forms.TextBox();
             this.txtbox_Cor = new System.Windows.Forms.TextBox();
             this.txtbox_Placa = new System.Windows.Forms.TextBox();
-            this.Ano = new System.Windows.Forms.TextBox();
+            this.txtbox_Ano = new System.Windows.Forms.TextBox();
             this.lb_Marca = new System.Windows.Forms.Label();
             this.lb_Modelo = new System.Windows.Forms.Label();
             this.lb_Responsavel = new System.Windows.Forms.Label();
@@ -73,12 +73,12 @@
             this.txtbox_Placa.Size = new System.Drawing.Size(87, 23);
             this.txtbox_Placa.TabIndex = 4;
             // 
-            // Ano
+            // txtbox_Ano
             // 
-            this.Ano.Location = new System.Drawing.Point(199, 88);
-            this.Ano.Name = "Ano";
-            this.Ano.Size = new System.Drawing.Size(87, 23);
-            this.Ano.TabIndex = 5;
+            this.txtbox_Ano.Location = new System.Drawing.Point(199, 88);
+            this.txtbox_Ano.Name = "txtbox_Ano";
+            this.txtbox_Ano.Size = new System.Drawing.Size(87, 23);
+            this.txtbox_Ano.TabIndex = 5;
             // 
             // lb_Marca
             // 
@@ -147,6 +147,7 @@
             this.btn_Salvar.TabIndex = 12;
             this.btn_Salvar.Text = "Salvar";
             this.btn_Salvar.UseVisualStyleBackColor = false;
+            this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
             // 
             // btn_Cancelar
             // 
@@ -188,7 +189,7 @@
             this.Controls.Add(this.lb_Responsavel);
             this.Controls.Add(this.lb_Modelo);
             this.Controls.Add(this.lb_Marca);
-            this.Controls.Add(this.Ano);
+            this.Controls.Add(this.txtbox_Ano);
             this.Controls.Add(this.txtbox_Placa);
             this.Controls.Add(this.txtbox_Cor);
             this.Controls.Add(this.txtbox_Modelo);
@@ -207,7 +208,7 @@
         private TextBox txtbox_Modelo;
         private TextBox txtbox_Cor;
         private TextBox txtbox_Placa;
-        private TextBox Ano;
+        private TextBox txtbox_Ano;
         private Label lb_Marca;
         private Label lb_Modelo;
         private Label lb_Responsavel;

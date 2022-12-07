@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Crud_1
 {
@@ -26,9 +27,6 @@ namespace Crud_1
         {
             try
             {
-                //Endereço da conexão
-                string data_source = "datasource=localhost;username=root;password=;database=db_garagem";
-
                 //Conexão do C# com o banco de dados
                 Conexao = new MySqlConnection(data_source);
 
@@ -59,7 +57,7 @@ namespace Crud_1
                     }
                     else 
                     {
-                        MessageBox.Show("Sei la o que aconteceu...");
+                        MessageBox.Show("Sei la o que aconteceu..."); //Não ta aparecendo, graças a Deus!
                     }
                     usuarioEncontrado =true;
                 }
@@ -76,6 +74,43 @@ namespace Crud_1
             finally
             {
                 
+            }
+        }
+
+        private void checkUsers(object sender, EventArgs e)
+        {
+            try
+            {
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
+                MySqlCommand comando = new MySqlCommand("SELECT COUNT(nome) FROM tb_usuario", Conexao);
+                MySqlDataReader reader = comando.ExecuteReader();
+                reader.Read();
+                if (reader.GetString(0) == "0")
+                {
+                    MessageBox.Show("Não há nenhum usuário cadastrado!\nÉ necessário cadastrar pelo menos um.");
+                    try
+                    {
+                        Form_CadastrarUsuario obj_cadastrarUsuario = new Form_CadastrarUsuario();
+                        obj_cadastrarUsuario.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    /*finally
+                    {
+
+                    }*/
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Conexao.Close();
             }
         }
     }

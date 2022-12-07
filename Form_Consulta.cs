@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.ListViewItem;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Crud_1
 {
@@ -37,7 +39,6 @@ namespace Crud_1
             list_Consulta.Columns.Add("Cor", 70, HorizontalAlignment.Center);
             list_Consulta.Columns.Add("Ano", 50, HorizontalAlignment.Center);
             list_Consulta.Columns.Add("Responsável", 80, HorizontalAlignment.Center);
-            list_Consulta.Columns.Add("Convidado", 80, HorizontalAlignment.Center);
 
             list_Usuarios.View = View.Details;
             list_Usuarios.LabelEdit = true;
@@ -53,13 +54,10 @@ namespace Crud_1
             Atualizar_Usuarios();
         }
 
-        public void Consultar_Veiculo(string _in)
+        public void Consultar_Veiculo(string complemento)
         {
             try
             {
-                //Endereço da conexão
-                string data_source = "datasource=localhost;username=root;password=;database=db_garagem";
-
                 //Conexão do C# com o banco de dados
                 Conexao = new MySqlConnection(data_source);
 
@@ -71,9 +69,8 @@ namespace Crud_1
                                     "tb_veiculo.cor, " +
                                     "tb_veiculo.ano, " +
                                     "tb_usuario.nome" +
-                                    /*"tb_usuario.nome" +*/
                              " FROM tb_veiculo JOIN tb_usuario" +
-                             " ON tb_usuario.id_usuario = tb_veiculo.responsavel" + _in; //String contendo um comando SQL para buscar por modelo
+                             " ON tb_usuario.id_usuario = tb_veiculo.responsavel" + complemento; //String contendo um comando SQL para buscar por modelo
 
                 Conexao.Open(); //Abre a conexão
 
@@ -93,11 +90,9 @@ namespace Crud_1
                         reader.GetString(4),
                         reader.GetString(5),
                         reader.GetString(6),
-                        //reader.GetString(7),
                      };
                     var linha_listview = new ListViewItem(linha);
                     list_Consulta.Items.Add(linha_listview);
-                    //MessageBox.Show(reader.GetString(5));
                 }
 
             }
@@ -148,26 +143,26 @@ namespace Crud_1
                 Conexao.Close();
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_novo_Click(object sender, EventArgs e)
         {
             BtnMenu_Novo.Show(Cursor.Position);
         }
-
         private void toolStrip_Veículo_Click(object sender, EventArgs e)
         {
             try
             {
-                Form_CadastrarVeiculo obj_cadastrarVeiculo = new Form_CadastrarVeiculo();
+                List<string> nomes_responsavel = new List<string>(); //lista criada
+                foreach (ListViewItem item in list_Usuarios.Items)
+                {
+                    nomes_responsavel.Add(item.SubItems[1].Text); 
+                }
+                Form_CadastrarVeiculo obj_cadastrarVeiculo = new Form_CadastrarVeiculo(nomes_responsavel); 
                 obj_cadastrarVeiculo.ShowDialog();
-            }/*catch
+            }catch(Exception ex)
             {
-
-            }*/finally
+                MessageBox.Show(ex.Message);
+            }finally
             {
                 Consultar_Veiculo("");
             }
@@ -182,12 +177,8 @@ namespace Crud_1
                 obj_cadastrarUsuario.ShowDialog();
             } finally
             {
-                Consultar_Veiculo("");
+                Atualizar_Usuarios();
             }
-        }
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_Pesquisar_Click(object sender, EventArgs e)
@@ -201,12 +192,40 @@ namespace Crud_1
         {
             try
             {
-                //Form_UpdateVeiculo obj_UpdateVeiculo = new Form_UpdateVeiculo(list_Consulta.SelectedItems.);
-                //obj_UpdateVeiculo.ShowDialog();
-            }/*catch
+
+                List<string> nomes_responsavel = new List<string>(); //lista criada
+                foreach (ListViewItem item in list_Usuarios.Items)
+                {
+                    nomes_responsavel.Add(item.SubItems[1].Text);
+                }
+
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open(); //Abre a conexão
+                MySqlCommand comando = new MySqlCommand(
+                    "SELECT tb_veiculo.id_veiculo, tb_veiculo.marca, tb_veiculo.modelo, tb_veiculo.placa, tb_veiculo.cor, tb_veiculo.ano, tb_usuario.nome "+
+                    "FROM tb_veiculo JOIN tb_usuario "+
+                    "ON tb_usuario.id_usuario = tb_veiculo.responsavel "+
+                    "WHERE tb_veiculo.id_veiculo = '"+ list_Consulta.SelectedItems[0].Text+"'", Conexao);
+                MySqlDataReader reader = comando.ExecuteReader();
+                reader.Read();
+                
+                Form_UpdateVeiculo obj_UpdateVeiculo = new Form_UpdateVeiculo(reader.GetString(0), 
+                                                                              reader.GetString(1),
+                                                                              reader.GetString(2),
+                                                                              reader.GetString(3),
+                                                                              reader.GetString(4),
+                                                                              reader.GetString(5),
+                                                                              reader.GetString(6),
+                                                                              nomes_responsavel);
+                Conexao.Close();
+                obj_UpdateVeiculo.ShowDialog();
+
+                //MessageBox.Show(list_Consulta.SelectedItems[0].Text);
+                
+            } catch (Exception ex)
             {
-                           
-            }*/
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
                 Consultar_Veiculo("");
@@ -223,9 +242,55 @@ namespace Crud_1
             Application.Exit();
         }
 
-        private void list_Consulta_SelectedIndexChanged(object sender, EventArgs e)
+        private void btn_Apagar_Click(object sender, EventArgs e)
         {
+            btnMenu_Apagar.Show(Cursor.Position);
+        }
 
+        private void toolStripMenuItem_Veiculo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Conexão do C# com o banco de dados
+                Conexao = new MySqlConnection(data_source);
+
+                //Deletando dados da tabela do banco
+                MySqlCommand comando = new MySqlCommand("DELETE FROM tb_veiculo WHERE id_veiculo = '"+ list_Consulta.SelectedItems[0].Text + "'", Conexao);
+                Conexao.Open();
+                comando.ExecuteReader();
+                MessageBox.Show("Veículo deletado!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                Consultar_Veiculo("");
+            }
+
+        }
+
+        private void toolStripMenuItem_Usuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Conexão do C# com o banco de dados
+                Conexao = new MySqlConnection(data_source);
+
+                //Deletando dados da tabela do banco
+                MySqlCommand comando = new MySqlCommand("DELETE FROM tb_usuario WHERE id_usuario = '" + list_Usuarios.SelectedItems[0].Text + "'", Conexao);
+                Conexao.Open();
+                comando.ExecuteReader();
+                MessageBox.Show("Usuário deletado!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Atualizar_Usuarios();
+            }
         }
     }
 }

@@ -13,11 +13,17 @@ namespace Crud_1
 {
     public partial class Form_CadastrarVeiculo : Form
     {
+        private int tempIdRespons;
         MySqlConnection Conexao;
-        public Form_CadastrarVeiculo()
+        public Form_CadastrarVeiculo(List<string> nomes)
         {
             InitializeComponent();
-           // box_Responsavel.Items.Add(new ListViewItem(
+            box_Responsavel.Items.Clear();
+
+            foreach(string nome in nomes)
+            {
+                box_Responsavel.Items.Add(nome);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -29,19 +35,41 @@ namespace Crud_1
         {
             try
             {
+
+                
+
                 //Endereço da conexão
                 string data_source = "datasource=localhost;username=root;password=;database=db_garagem";
 
                 //Conexão do C# com o banco de dados
                 Conexao = new MySqlConnection(data_source);
 
+                Conexao.Open();
+                MySqlCommand comando2 = new MySqlCommand("SELECT id_usuario FROM tb_usuario WHERE nome = '"+box_Responsavel.Text+"'", Conexao);
+                MySqlDataReader reader2 = comando2.ExecuteReader();
+
+                
+                while (reader2.Read())
+                {
+                    tempIdRespons = Convert.ToInt16(reader2.GetString(0));
+                }
+                
+                Conexao.Close();
+
+
+                
                 //Inserindo dados na tabela do banco
-                string sql = "INSERT INTO tb_veiculo(marca, modelo, placa, cor, ano)" +
-                    "VALUES ('"+ txtbox_Marca.Text+"','"+ txtbox_Modelo.Text + "','"+ txtbox_Placa.Text + "','"+txtbox_Cor.Text+"','"+ txtbox_Ano.Text + "')";
+                string sql = "INSERT INTO tb_veiculo(marca, modelo, placa, cor, ano, responsavel)" +
+                             "VALUES ('"+ txtbox_Marca.Text+"','"+ txtbox_Modelo.Text + "','"+ txtbox_Placa.Text + "','"+txtbox_Cor.Text+"','"+ txtbox_Ano.Text + "','" +tempIdRespons+"')";
+
+                
 
                 MySqlCommand comando = new MySqlCommand(sql, Conexao);
                 Conexao.Open();
                 comando.ExecuteReader();
+                Conexao.Close();
+                
+                
                 MessageBox.Show("Veículo cadastrado!");
                 this.Close();
             }

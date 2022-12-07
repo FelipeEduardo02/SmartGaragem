@@ -124,6 +124,7 @@
             // 
             this.btn_Ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Ok.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_Ok.FlatAppearance.BorderSize = 0;
             this.btn_Ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Ok.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Ok.ForeColor = System.Drawing.SystemColors.Window;
@@ -141,7 +142,7 @@
             this.btn_Cancelar.AccessibleName = "Cancelar";
             this.btn_Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cancelar.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btn_Cancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btn_Cancelar.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
             this.btn_Cancelar.FlatAppearance.BorderSize = 0;
             this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Cancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
